@@ -1,12 +1,11 @@
 import './App.css';
-
-import {StoryBaord} from './components/storyboard'
+import StoryBoardSlider from './components/slider/ImageSlider';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StoryBaord></StoryBaord>
+        <StoryBoardSlider></StoryBoardSlider>
       </header>
     </div>
   );
