@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.slider-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 700px;
+  position: relative;
+}
+
+.slider-image {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+}
+
 .storyboard-container {
   margin-top: 50px;
   display: flex;
@@ -18,12 +34,7 @@
   margin-left: auto;
   margin-right: auto;
   flex-direction: row;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   gap: 2rem;
-}
-
-.story img {
-
 }
 
 .story-text {
@@ -40,7 +51,8 @@
   color: black;
   position: absolute;
   align-content: center;
-  bottom: 1rem;
+  bottom: 100px;
+  margin-left: 140px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
