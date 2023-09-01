@@ -1,5 +1,6 @@
 import './App.css';
-import StoryBoardSlider from './components/slider/ImageSlider';
+
+import StoryBoardSlider from './components/slider/StoryBoardSlider'
 
 function App() {
   return (
