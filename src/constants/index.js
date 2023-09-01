@@ -1,28 +1,27 @@
 export const animatedCards = [
     {
         id: 'whole',
-        imgUrl: '/1.jpeg',
+        imgUrl: '/whole.png',
         title: 'WHOLE',
     },
     {
         id: 'freeze',
-        imgUrl: '/2.jpeg',
+        imgUrl: '/freeze.png',
         title: 'FREEZE',
     },
     {
         id: 'crush',
-        imgUrl: '/3.png',
+        imgUrl: '/crush.png',
         title: 'CRUSH',
     },
     {
         id: 'interim',
-        imgUrl: '/4.png',
+        imgUrl: '/interim.png',
         title: 'MINUS 196',
     },
+    {
+        id: 'poster',
+        imgUrl: '/poster.png',
+        title: 'CLICK HERE TO CLAIM',
+    }
 ];
-
-export const poster = {
-    id: 'poster',
-    imgUrl: '/final.png',
-    title: 'CLICK HERE TO CLAIM',
-}

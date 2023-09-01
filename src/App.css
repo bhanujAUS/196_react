@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.slider-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  min-height: 70vh;
+  gap: 1.25rem;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
 .storyboard-container {
   margin-top: 50px;
   display: flex;
@@ -37,7 +52,7 @@
 
 .story-poster-text {
   font-size: 10px;
-  color: black;
+  color: white;
   position: absolute;
   align-content: center;
   bottom: 1rem;
