@@ -25,9 +25,6 @@ export const StoryBaord = () => {
                   alt={image.id}
                   className=''
                 />
-                <h3 className='story-text'>
-                    {image.title}
-                </h3>
               </motion.div>
           </motion.div>
         ))}
