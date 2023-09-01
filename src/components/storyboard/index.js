@@ -12,7 +12,8 @@ export const StoryBaord = () => {
           <motion.div
             variants={staggerContainer}
             initial='hidden'
-            whileInView="show"
+            whileInView='show'
+            viewport={{once: false, amount: 0.25}}
             className='story-container'
             >
               <motion.div
