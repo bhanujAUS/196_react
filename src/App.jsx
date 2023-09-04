@@ -1,5 +1,5 @@
 import './App.css';
-import StoryBoardSlider from './components/slider/ImageSlider';
+import StoryBoardSlider from './components/slider/StoryBoardSlider';
 import ShiningEffect from './components/shine'
 //import BackgroundImageAnimation from './components/background';
 
