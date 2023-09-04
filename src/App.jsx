@@ -9,7 +9,7 @@ function App() {
 
   const containerStyle = {
     backgroundImage: `url(${'/background.PNG'})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     width: '100%',
