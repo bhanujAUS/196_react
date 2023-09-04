@@ -14,15 +14,16 @@ function App() {
     backgroundPosition: 'center',
     width: '100%',
     height: '100%',
-    overflow: 'hidden'
   }
 
   return (
-    <div style={ containerStyle }>
- 
-      <ShiningEffect></ShiningEffect>      
-      <StoryBoardSlider></StoryBoardSlider>
-            
+    <div className='slider-container'>
+      <div style={ containerStyle }>
+  
+        <ShiningEffect></ShiningEffect>      
+        <StoryBoardSlider></StoryBoardSlider>
+       
+      </div>
     </div>
   );
 }
