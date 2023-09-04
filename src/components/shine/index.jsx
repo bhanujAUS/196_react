@@ -13,7 +13,7 @@ const ShiningEffect = () => {
         x: '0px', 
         y: '0px', 
         transition: {
-          duration: 9, 
+          duration: 10, 
           repeat: Infinity
         },
       });
