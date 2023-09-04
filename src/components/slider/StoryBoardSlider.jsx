@@ -12,13 +12,18 @@ const StoryBoardSlider = () => {
     opacity: 1
   };
 
+  const poster = {
+    id: 'poster',
+    imgUrl: '/poster.png',
+    title: 'CLICK HERE TO CLAIM',
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       if (currentIndex < animatedCards.length - 1) {
         setCurrentIndex((prevIndex) => prevIndex + 1);
       } else {
         // Stop the rotation when we reach the last image with id "poster"
-        clearInterval(timer);
         setStopRotation(true);
       }
     }, 2000);
@@ -28,44 +33,49 @@ const StoryBoardSlider = () => {
 
   return (
     <section className='slider-container'>
-      <AnimatePresence>
-        <motion.div
-          key={'test'}
-          variants={staggerContainer}
-          initial='hidden'
-          whileInView='show'
-          viewport={{ once: true }}
-        >
-          {animatedCards.map((image, index) => (
-            <div key={image.id}>
-              <motion.img
-                className='slider-image'
-                src={image.imgUrl}
-                alt={image.id}
-                variants={slideVariants('right', 'left')}
-                initial='initial'
-                // Use a conditional to determine the animation for the last image
-                animate={
-                  index === currentIndex
-                    ? stopRotation
-                      ? finalVariant // Apply the "final" variant to keep it static
-                      : 'animate' // Continue with the regular animation
-                    : ''
-                }
-                exit='exit'
-              />
-              {/* Check if the current image is the last one with id "poster" */}
-              {/* {index === animatedCards.length - 1 && image.id === 'poster' && (
-                <div>
-                  <a className='story-poster-text' href='/'>
-                    {image.title}
-                  </a>
+      { !stopRotation && (
+          <AnimatePresence>
+            <motion.div
+              key={'test'}
+              variants={staggerContainer}
+              initial='hidden'
+              whileInView='show'
+              viewport={{ once: true }}
+            >
+              {animatedCards.map((image, index) => (
+                <div key={image.id}>
+                  <motion.img
+                    className='slider-image'
+                    src={image.imgUrl}
+                    alt={image.id}
+                    variants={slideVariants('right', 'left')}
+                    initial='initial'
+                    // Use a conditional to determine the animation for the last image
+                    animate={
+                      index === currentIndex
+                        ? stopRotation
+                          ? finalVariant // Apply the "final" variant to keep it static
+                          : 'animate' // Continue with the regular animation
+                        : ''
+                    }
+                    exit='exit'
+                  />
                 </div>
-              )} */}
-            </div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        )
+      }
+
+      { stopRotation && (
+        <div>
+          <img className="slider-image" href="#" src={poster.imgUrl} alt={poster.id}/>
+          <a className='story-poster-text' href='/'>
+            {poster.title}
+          </a>
+        </div>
+      )
+      }
     </section>
   );
 };
