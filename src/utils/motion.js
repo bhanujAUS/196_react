@@ -8,27 +8,29 @@ export const staggerContainer = (staggerChildren, delayChildren) => ({
     },
 });
 
-export const slideIn = (direction, type, delay, duration) => ({
-    hidden: {
-        x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0
-    },
-    show: {
-        x: 0,
-        y: 0,
-        opacity: 1,
+export const shineVariants = () => ({
+    initial:{ opacity: 0, width: '0%', height: '0%', x: '0%', y: '0%' },
+    animate: {
+        opacity: 1, 
+        width: '100%', 
+        height: '100%', 
+        x: '0px', 
+        y: '0px', 
         transition: {
-            type,
-            delay,
-            duration,
-            ease: 'easeOut',
-        },
-    },
+          duration: 10, 
+          repeat: Infinity
+        }
+    }
 });
 
-export const slideVariants = () => ({
-    initial: { x: '100vw' }, // Start from the right side
-    animate: { x: '0vw', transition: { duration: 1 } }, // Move to the center
-    exit: { x: '-100vw', transition: { duration: 1, ease: 'easeInOut' } } // Slide out to the left
+export const slideVariants = (start, end) => ({
+    initial: { x: start === 'left' ? '-100%' : start === 'right' ? '100%' : 0, opacity: 1 },
+    animate: { 
+        x: end === 'left' ? '-100vh' : end === 'right' ? '100vh' : 0,
+        opacity: 1,
+        transition: { duration: 4, ease: 'easeOut' } 
+    },
+    exit: { opacity: 1 }
 });
 
 export const popUp = () => ({

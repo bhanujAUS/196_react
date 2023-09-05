@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { animatedCards } from '../../constants';
 import { slideVariants, staggerContainer, popUp } from '../../utils/motion';
@@ -12,6 +12,7 @@ const StoryBoardSlider = () => {
     opacity: 1
   };
 
+
   const poster = {
     id: 'poster',
     imgUrl: '/poster.png',
@@ -23,7 +24,6 @@ const StoryBoardSlider = () => {
       if (currentIndex < animatedCards.length - 1) {
         setCurrentIndex((prevIndex) => prevIndex + 1);
       } else {
-        // Stop the rotation when we reach the last image with id "poster"
         setStopRotation(true);
       }
     }, 2000);
@@ -76,6 +76,7 @@ const StoryBoardSlider = () => {
         </div>
       )
       }
+
     </section>
   );
 };

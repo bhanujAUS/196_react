@@ -16,56 +16,14 @@
   height: 100%;
   object-fit: contain;
   position: absolute;
-}
-
-.storyboard-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  min-height: 70vh;
-  gap: 1.25rem;
-}
-
-.story {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  flex-direction: row;
-  gap: 2rem;
-}
-
-.story-text {
-  font-size: 26px;
-  color: black;
-  position: absolute;
-  z-index: 0;
-  align-content: center;
-  rotate: -45deg;
+  overflow: hidden;
 }
 
 .story-poster-text {
-  font-size: 10px;
-  color: white;
+  font-size: 20px;
+  color: black;
   position: absolute;
   align-content: center;
   bottom: 100px;
-  margin-left: 140px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  margin-left: 100px;
 }
