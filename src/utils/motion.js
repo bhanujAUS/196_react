@@ -32,3 +32,14 @@ export const slideVariants = (start, end) => ({
     },
     exit: { opacity: 1 }
 });
+
+export const popUp = () => ({
+    initial: { scale: 0 },
+    animate: { 
+        scale: 1, 
+        transition: { 
+            duration: 1,
+            type: 'spring',
+            stiffness: 160
+        } },
+})

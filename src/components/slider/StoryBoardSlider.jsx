@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { animatedCards } from '../../constants';
-import { slideVariants } from '../../utils/motion';
+import { slideVariants, staggerContainer, popUp } from '../../utils/motion';
 
 const StoryBoardSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [stopRotation, setStopRotation] = useState(false);
+  const [stopRotation, setStopRotation] = useState(false); // Add a state to control rotation
+
+  const finalVariant = {
+    opacity: 1
+  };
+
 
   const poster = {
     id: 'poster',
@@ -28,36 +33,50 @@ const StoryBoardSlider = () => {
 
   return (
     <section className='slider-container'>
-      <AnimatePresence>
-        { !stopRotation && (
-          animatedCards.map((image, index) => (
-            <div key={image.id}>
-              <motion.img
-                className='slider-image'
-                src={image.imgUrl}
-                alt={image.id}
-                variants={slideVariants('left', 'right')}
-                initial='initial'
-                animate={
-                  index === currentIndex
-                    ? 'animate'
-                    : ''
-                }
-                exit='exit'
-              />
-            </div>
-          ))
-        )}
+      { !stopRotation && (
+          <AnimatePresence>
+            <motion.div
+              key={'test'}
+              variants={staggerContainer}
+              initial='hidden'
+              whileInView='show'
+              viewport={{ once: true }}
+            >
+              {animatedCards.map((image, index) => (
+                <div key={image.id}>
+                  <motion.img
+                    className='slider-image'
+                    src={image.imgUrl}
+                    alt={image.id}
+                    variants={popUp()}
+                    initial='initial'
+                    // Use a conditional to determine the animation for the last image
+                    animate={
+                      index === currentIndex
+                        ? stopRotation
+                          ? finalVariant // Apply the "final" variant to keep it static
+                          : 'animate' // Continue with the regular animation
+                        : ''
+                    }
+                    exit='exit'
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        )
+      }
 
-        { stopRotation && (
-          <div>
-            <img className="slider-image" href="#" src={poster.imgUrl} alt={poster.id}/>
-            <a className='story-poster-text' href='/'>
-              {poster.title}
-            </a>
-          </div>)
-        }
-      </AnimatePresence>
+      { stopRotation && (
+        <div>
+          <img className="slider-image" href="#" src={poster.imgUrl} alt={poster.id}/>
+          <a className='story-poster-text' href='/'>
+            {poster.title}
+          </a>
+        </div>
+      )
+      }
+
     </section>
   );
 };
