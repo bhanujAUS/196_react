@@ -30,3 +30,14 @@ export const slideVariants = () => ({
     animate: { x: '0vw', transition: { duration: 1 } }, // Move to the center
     exit: { x: '-100vw', transition: { duration: 1, ease: 'easeInOut' } } // Slide out to the left
 });
+
+export const popUp = () => ({
+    initial: { scale: 0 },
+    animate: { 
+        scale: 1, 
+        transition: { 
+            duration: 1,
+            type: 'spring',
+            stiffness: 160
+        } },
+})
