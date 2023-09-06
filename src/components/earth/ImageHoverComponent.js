@@ -18,7 +18,13 @@ const ImageHoverComponent = ({ mainImage, hoverImage }) => {
       onMouseMove={handleMouseHover}
       onMouseLeave={() => setHoverPosition({ x: 0, y: 0 })}
     >
-      <img src={mainImage} alt='Main' className='main-image' />
+      <img 
+        src={mainImage} 
+        alt='Main' 
+        className='main-image' 
+        style={{
+          alignSelf: 'center'
+        }}/>
       <div className='hover-container'>
         <img
           src={hoverImage}
