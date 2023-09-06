@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { animatedCards } from '../../constants';
-import { slideVariants, staggerContainer, popUp } from '../../utils/motion';
+import { staggerContainer, popUp } from '../../utils/motion';
 
 const StoryBoardSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
