@@ -7,7 +7,7 @@ const ARComponent = () => {
   useEffect(() => {
     const sceneEl = sceneRef.current;
     let arSystem;
-
+    console.log(sceneEl);
     if (sceneEl) {
       sceneEl.addEventListener('loaded', () => {
         arSystem = sceneEl.systems["mindar-image-system"];
@@ -28,7 +28,8 @@ const ARComponent = () => {
       const pauseButton = document.querySelector("#example-pause-button");
       const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
       const unpauseButton = document.querySelector("#example-unpause-button");
-  
+      
+
       startButton.addEventListener('click', () => {
         console.log("start");
         arSystemRef.current.start(); // start AR 
@@ -73,7 +74,7 @@ const ARComponent = () => {
         <button id="example-unpause-button">UnPause</button>
         <button id="example-stop-button">Stop</button>
         <a-scene ref={sceneRef} 
-          mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/card.mind; autoStart: false;" 
+          mindar-image="imageTargetSrc: './public/things.mind'; autoStart: false;" 
           color-space="sRGB" 
           renderer="colorManagement: true, physicallyCorrectLights" 
           vr-mode-ui="enabled: false" 
