@@ -29,5 +29,8 @@
   font-size: 14px;
   font-weight: bold;
   padding: 10px 12px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
   transition: background-color 200ms ease, color 200ms ease;
 }

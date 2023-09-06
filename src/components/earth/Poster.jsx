@@ -27,9 +27,9 @@ export default function Poster() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ opacity: 0.2 }}
-                    style={{ objectFit: 'cover', width: '100vh' }}
+                    style={{ position: "fixed", top: "0px" }}
                 >
-                    <img href="#" src={poster.imgUrl} alt={poster.id} />
+                    <img href="#" src={poster.imgUrl} alt={poster.id} style={{ width: '100%', height: '100vh', objectFit: 'cover' }} />
                 </motion.div>
             </div>
             <button className="button" onClick={() => setIsModalOpen(!isModalOpen)}>
