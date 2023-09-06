@@ -7,7 +7,7 @@ const ARComponent = () => {
   useEffect(() => {
     const sceneEl = sceneRef.current;
     let arSystem;
-    console.log(sceneEl);
+
     if (sceneEl) {
       sceneEl.addEventListener('loaded', () => {
         arSystem = sceneEl.systems["mindar-image-system"];
@@ -20,50 +20,51 @@ const ARComponent = () => {
       sceneEl.addEventListener("arError", (event) => {
         console.log("MindAR failed to start")
       });
-
-      const exampleTarget = document.querySelector('#example-target');
-      const examplePlane = document.querySelector('#example-plane');
-      const startButton = document.querySelector("#example-start-button");
-      const stopButton = document.querySelector("#example-stop-button");
-      const pauseButton = document.querySelector("#example-pause-button");
-      const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
-      const unpauseButton = document.querySelector("#example-unpause-button");
-      
-
-      startButton.addEventListener('click', () => {
-        console.log("start");
-        arSystemRef.current.start(); // start AR 
-      });
-  
-      stopButton.addEventListener('click', () => {
-        arSystemRef.current.stop(); // stop AR 
-      });
-  
-      pauseButton.addEventListener('click', () => {
-        arSystemRef.current.pause(); // pause AR, pause video
-      });
-  
-      pauseKeepVideoButton.addEventListener('click', () => {
-        arSystemRef.current.pause(true); // pause AR, keep video
-      });
-  
-      unpauseButton.addEventListener('click', () => {
-        arSystemRef.current.unpause();
-      });
-       
-      exampleTarget.addEventListener("targetFound", event => {
-        console.log("target found");
-      });
-      
-      exampleTarget.addEventListener("targetLost", event => {
-        console.log("target lost");
-      });
-      
-      examplePlane.addEventListener("click", event => {
-        console.log("plane click");
-      });
     }
   }, []);
+
+  const exampleTarget = document.querySelector('#example-target');
+  const examplePlane = document.querySelector('#example-plane');
+  const startButton = document.querySelector("#example-start-button");
+  const stopButton = document.querySelector("#example-stop-button");
+  const pauseButton = document.querySelector("#example-pause-button");
+  const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
+  const unpauseButton = document.querySelector("#example-unpause-button");
+  
+  startButton && startButton.addEventListener('click', () => {
+    console.log("start");
+    arSystemRef.current.start(); // start AR 
+  });
+
+  stopButton && stopButton.addEventListener('click', () => {
+    arSystemRef.current.stop(); // stop AR 
+  });
+
+  pauseButton && pauseButton.addEventListener('click', () => {
+    arSystemRef.current.pause(); // pause AR, pause video
+  });
+
+  pauseKeepVideoButton && pauseKeepVideoButton.addEventListener('click', () => {
+    arSystemRef.current.pause(true); // pause AR, keep video
+  });
+
+  unpauseButton && unpauseButton.addEventListener('click', () => {
+    arSystemRef.current.unpause();
+  });
+   
+  if (exampleTarget) {
+    exampleTarget.addEventListener("targetFound", event => {
+      console.log("target found");
+    });
+    
+    exampleTarget.addEventListener("targetLost", event => {
+      console.log("target lost");
+    });
+  }
+
+  examplePlane && examplePlane.addEventListener("click", event => {
+    console.log("plane click");
+  });
 
   return (    
     <>
@@ -74,7 +75,7 @@ const ARComponent = () => {
         <button id="example-unpause-button">UnPause</button>
         <button id="example-stop-button">Stop</button>
         <a-scene ref={sceneRef} 
-          mindar-image="imageTargetSrc: './public/things.mind'; autoStart: false;" 
+          mindar-image="imageTargetSrc: './things.mind'; autoStart: true;" 
           color-space="sRGB" 
           renderer="colorManagement: true, physicallyCorrectLights" 
           vr-mode-ui="enabled: false" 
