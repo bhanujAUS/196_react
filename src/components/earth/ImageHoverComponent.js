@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ImageHoverComponent.css';
+import Poster from './Poster';
 
 const ImageHoverComponent = ({ mainImage, hoverImage }) => {
   const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
@@ -26,16 +27,7 @@ const ImageHoverComponent = ({ mainImage, hoverImage }) => {
           alignSelf: 'center'
         }}/>
       <div className='hover-container'>
-        <img
-          src={hoverImage}
-          alt='Hover'
-          className='hover-image'
-          style={{
-            clipPath: `circle(200px at ${hoverPosition.x * 100}% ${
-              hoverPosition.y * 100
-            }%)`
-          }}
-        />
+        <Poster />
       </div>
     </div>
   );
