@@ -14,28 +14,35 @@ export default function Poster() {
     <div>
       <AnimatePresence>
         {isModalOpen && (
-          <div>
-            <motion.button
-              onClick={() => setIsModalOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ opacity: 0.15 }}
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1}}
-              exit={{ opacity: 0 }}
-              transition={{ opacity: 0.2 }}
-            >
-              <img href="#" src={poster.imgUrl} alt={poster.id}/>
-            </motion.div>
-          </div>
+          <>
+            <div>
+                <motion.button
+                    onClick={() => setIsModalOpen(false)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ opacity: 0.15 }} />
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ opacity: 0.2 }}
+                    style={{ objectFit: 'cover', width: '100vh' }}
+                >
+                    <img href="#" src={poster.imgUrl} alt={poster.id} />
+                </motion.div>
+            </div>
+            <button className="button" onClick={() => setIsModalOpen(!isModalOpen)}>
+                Back
+            </button>
+            </> 
         )}
       </AnimatePresence>
-      <button className="button" onClick={() => setIsModalOpen(!isModalOpen)}>
-        Translate
-      </button>
+      {!isModalOpen && (
+        <button className="button" onClick={() => setIsModalOpen(!isModalOpen)}>
+            Translate
+        </button>
+      )}
     </div>
   );
 }

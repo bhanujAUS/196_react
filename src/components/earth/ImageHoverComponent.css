@@ -17,12 +17,6 @@
   height: 100%;
 }
 
-.hover-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .image-container:hover .hover-image {
   clip-path: circle(0% at 50% 50%);
 }
