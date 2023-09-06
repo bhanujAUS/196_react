@@ -13,7 +13,7 @@ const CustomRouter = createBrowserRouter([
     },
     {
       path: "earth",
-      element: <ImageHoverComponent mainImage='/earth.jpg' hoverImage='/cool.jpg'/>,
+      element: <ImageHoverComponent mainImage='/background.PNG' hoverImage='/poster.png'/>,
       errorElement: <ErrorPage/>
     },
 ]);
