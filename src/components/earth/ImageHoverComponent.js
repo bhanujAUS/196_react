@@ -19,13 +19,20 @@ const ImageHoverComponent = ({ mainImage, hoverImage }) => {
       onMouseMove={handleMouseHover}
       onMouseLeave={() => setHoverPosition({ x: 0, y: 0 })}
     >
-      <img 
-        src={mainImage} 
-        alt='Main' 
-        className='main-image' 
-        style={{
-          alignSelf: 'center'
-        }}/>
+      <img src={mainImage} alt='main' className='main-image' />
+      <div className='hover-container'>
+        <img 
+          src={hoverImage} 
+          alt='hover' 
+          className='hover-image'
+          style={{
+            alignSelf: 'center',
+            clipPath: `circle(100px at ${hoverPosition.x * 100}% ${
+              hoverPosition.y * 100
+            }%)`,
+          }}
+        />
+      </div>
       <div className='hover-container'>
         <Poster />
       </div>
