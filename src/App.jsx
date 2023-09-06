@@ -1,7 +1,7 @@
 import './App.css';
+
 import StoryBoardSlider from './components/slider/StoryBoardSlider';
 import ShiningEffect from './components/shine'
-//import BackgroundImageAnimation from './components/background';
 
 import React from 'react';
 
